@@ -9,23 +9,23 @@
 import { UserRole } from '../../utils/constants.util';
 
 export interface UserListDTO {
-    id: number;
-    username: string;
-    email: string;
-    role: UserRole;
+  id: number;
+  username: string;
+  email: string;
+  role: UserRole;
 }
 
 export interface UserByIdDTO {
-    id: number;
-    username: string;
-    email: string;
-    role: UserRole;
+  id: number;
+  username: string;
+  email: string;
+  role: UserRole;
 }
 
 export interface UserUpdatedDTO {
-    username?: string;
-    email?: string;
-    password?: string;
-    role?: UserRole;
-    avatar?: string;
+  username?: string;
+  email?: string;
+  password?: string;
+  role?: UserRole;
+  avatar?: string;
 }

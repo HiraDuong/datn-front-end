@@ -48,12 +48,12 @@ export const MESSAGE_ERR_EMAIL_NOT_FOUND = 'Email không tồn tại';
 
 // ! User
 export enum UserRole {
-    Admin = 'admin',
-    User = 'user',
+  Admin = 'admin',
+  User = 'user',
 }
 
 // ! Task
 export enum TaskType {
-    Test = 'test',
-    Exercise = 'exercise',
+  Test = 'test',
+  Exercise = 'exercise',
 }

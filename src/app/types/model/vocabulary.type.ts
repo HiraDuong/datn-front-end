@@ -1,12 +1,12 @@
 export interface VocabularyModel {
-    id?: number;
-    word: string;
-    meaning: string;
-    pronunciation: string;
-    example: string;
+  id?: number;
+  word: string;
+  meaning: string;
+  pronunciation: string;
+  example: string;
 }
 
 export interface VocabularySearchTerm {
-    word?: string;
-    meaning?: string;
+  word?: string;
+  meaning?: string;
 }

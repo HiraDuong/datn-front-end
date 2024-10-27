@@ -4,14 +4,14 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 
 describe('authInterceptor', () => {
-    const interceptor: HttpInterceptorFn = (req, next) =>
-        TestBed.runInInjectionContext(() => interceptor(req, next));
+  const interceptor: HttpInterceptorFn = (req, next) =>
+    TestBed.runInInjectionContext(() => interceptor(req, next));
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({});
-    });
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+  });
 
-    it('should be created', () => {
-        expect(interceptor).toBeTruthy();
-    });
+  it('should be created', () => {
+    expect(interceptor).toBeTruthy();
+  });
 });

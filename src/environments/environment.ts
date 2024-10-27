@@ -1,4 +1,4 @@
 export const environment = {
-    production: true,
-    apiUrl: 'http://localhost:3000/api', // Địa chỉ API
+  production: true,
+  apiUrl: 'https://datn-backend-hiraduong-hiraduongs-projects.vercel.app/api/v1', // Địa chỉ API
 };
