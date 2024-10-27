@@ -1,0 +1,72 @@
+<div class="max-w-lg mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">User Profile</h2>
+
+    <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+        <div class="mb-4">
+            <label
+                for="username"
+                class="block text-sm font-medium text-gray-700"
+                >Username</label
+            >
+            <input
+                id="username"
+                formControlName="username"
+                [readonly]="!isEditing"
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700"
+                >Email</label
+            >
+            <input
+                id="email"
+                formControlName="email"
+                [readonly]="!isEditing"
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+        </div>
+
+        <div class="mb-4">
+            <label for="role" class="block text-sm font-medium text-gray-700"
+                >Role</label
+            >
+            <input
+                id="role"
+                formControlName="role"
+                [readonly]="!isEditing"
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+        </div>
+
+        <div class="mb-4">
+            <label for="avatar" class="block text-sm font-medium text-gray-700"
+                >Avatar URL</label
+            >
+            <input
+                id="avatar"
+                formControlName="avatar"
+                [readonly]="!isEditing"
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+            />
+        </div>
+
+        <button
+            *ngIf="!isEditing"
+            (click)="editProfile()"
+            type="button"
+            class="mr-2 bg-blue-500 text-white px-4 py-2 rounded"
+        >
+            Edit
+        </button>
+
+        <button
+            *ngIf="isEditing"
+            type="submit"
+            class="bg-green-500 text-white px-4 py-2 rounded"
+        >
+            Save
+        </button>
+    </form>
+</div>
