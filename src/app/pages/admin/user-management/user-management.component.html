@@ -1,0 +1,52 @@
+<app-admin-nav></app-admin-nav>
+<div class="user-management p-6 bg-gray-50">
+  <h1 class="text-3xl font-bold text-center mb-6">Danh Sách Người Dùng</h1>
+
+  <!-- Hiển thị loading nếu đang tải dữ liệu -->
+  <app-loading *ngIf="loading"></app-loading>
+
+  <div *ngIf="!loading">
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b">ID</th>
+          <th class="py-2 px-4 border-b">Tên Đăng Nhập</th>
+          <th class="py-2 px-4 border-b">Email</th>
+          <th class="py-2 px-4 border-b">Vai Trò</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td class="py-2 px-4 border-b text-center">
+            <a
+              [routerLink]="['/admin/user-detail', user.id]"
+              class="text-blue-500 hover:underline"
+              >{{ user.id }}</a
+            >
+          </td>
+          <td class="py-2 px-4 border-b">{{ user.username }}</td>
+          <td class="py-2 px-4 border-b">{{ user.email }}</td>
+          <td class="py-2 px-4 border-b">{{ user.role }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination flex justify-center items-center mt-6 space-x-2">
+      <button
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+        class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+      >
+        Trước
+      </button>
+      <span class="text-lg">Trang {{ currentPage }}</span>
+      <button
+        (click)="nextPage()"
+        [disabled]="currentPage * limit >= totalRecords"
+        class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+      >
+        Sau
+      </button>
+    </div>
+  </div>
+</div>

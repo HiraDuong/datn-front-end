@@ -2,7 +2,7 @@
  * @ Author: Vu Huy Hoang
  * @ Create Time: 2024-10-17 01:12:22
  * @ Modified by: Vu Huy Hoang
- * @ Modified time: 2024-10-28 01:48:28
+ * @ Modified time: 2024-11-05 18:23:00
  * @ Description: Course DTO
  */
 

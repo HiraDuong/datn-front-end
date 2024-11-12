@@ -1,0 +1,98 @@
+<app-admin-nav></app-admin-nav>
+<div class="container mx-auto p-6 border rounded shadow-md bg-gray-100">
+  <h2 class="text-2xl font-bold text-center mb-4">Tạo Bài Học</h2>
+  <form [formGroup]="lessonForm" (ngSubmit)="createLesson()">
+    <!-- Các trường nhập liệu cơ bản khác -->
+    <div class="mb-4">
+      <label for="name" class="block text-sm font-medium text-gray-700">Tên Bài Học:</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Nhập tên bài học"
+        required
+      />
+    </div>
+
+  <div>
+    <div class="inline-block ">
+    <label for="name" class=" ưblock text-sm font-medium text-gray-700">Số thứ tự trong khóa học:</label>
+    <input
+      id="number"
+      type="number"
+      formControlName="number"
+      class="mt-1 block w-20  p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Nhập số thứ tự"
+      required
+    />
+  </div>
+  <div class="inline-block ml-20">
+    <label for="name" class="block text-sm font-medium text-gray-700">Thời lượng:</label>
+    <input
+      id="duration"
+      type="number"
+      formControlName="duration"
+      class="mt-1 block w-20  p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Nhập số thời lượng (giờ)"
+      required
+    />
+  </div>
+  </div>
+
+    <div class="mb-4">
+      <label for="description" class="block text-sm font-medium text-gray-700">Mô Tả:</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="mt-1 block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Nhập mô tả bài học"
+        required
+      ></textarea>
+    </div>
+
+<!-- Phần Vocabulary -->
+<h3 class="text-xl font-semibold mt-6 mb-2 cursor-pointer" (click)="toggleVocabulary()">
+  Vocabulary
+  <span class="ml-2">
+    {{ showVocabulary ? '▲' : '▼' }}
+  </span>
+</h3>
+<ul class="mb-4" *ngIf="showVocabulary">
+  <li *ngFor="let vocabulary of vocabularies" class="flex justify-between items-center p-2 border-b border-gray-300">
+    <div class="flex-1">{{ vocabulary.id }}</div>
+    <div class="flex-1">{{ vocabulary.word }}</div>
+    <div class="flex-1">{{ vocabulary.meaning }}</div>
+    <button (click)="addVocabulary(vocabulary.id)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition duration-200">Add</button>
+  </li>
+</ul>
+<div class="flex justify-between mb-4" *ngIf="showVocabulary">
+  <button (click)="previousVocabularyPage()" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition duration-200" type="button">Previous</button>
+  {{currentVocabularyPage}}/{{totalVocabularies}}
+  <button (click)="nextVocabularyPage()" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition duration-200" type="button">Next</button>
+</div>
+
+<!-- Phần Grammar -->
+<h3 class="text-xl font-semibold mt-6 mb-2 cursor-pointer" (click)="toggleGrammar()">
+  Grammar
+  <span class="ml-2">
+    {{ showGrammar ? '▲' : '▼' }}
+  </span>
+</h3>
+<ul class="mb-4" *ngIf="showGrammar">
+  <li *ngFor="let grammar of grammars" class="flex justify-between items-center p-2 border-b border-gray-300">
+    <div class="flex-1">{{ grammar.id }}</div>
+    <div class="flex-1">{{ grammar.name }}</div>
+    <button (click)="addGrammar(grammar.id)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition duration-200">Add</button>
+  </li>
+</ul>
+<div class="flex justify-between mb-4" *ngIf="showGrammar">
+  <button (click)="previousGrammarPage()" [disabled]="currentGrammarPage === 0" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition duration-200" type="button">Previous</button>
+  {{currentGrammarPage}} / {{totalGrammars}}
+  <button (click)="nextGrammarPage()" [disabled]="grammars.length < grammarPageSize" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition duration-200" type="button">Next</button>
+</div>
+
+    <!-- Nút tạo bài học -->
+    <button type="submit" class="mt-6 w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200">Tạo Bài Học</button>
+  </form>
+</div>

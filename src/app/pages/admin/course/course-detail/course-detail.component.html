@@ -1,0 +1,117 @@
+<app-admin-nav></app-admin-nav>
+<div class="course-detail p-6 bg-gray-50">
+  <h1 class="text-3xl font-bold text-center mb-6">Chi Tiết Khóa Học</h1>
+
+  <app-loading *ngIf="loading"></app-loading>
+
+  <div *ngIf="!loading " class="mb-6">
+    <div class="bg-white p-4 rounded shadow mb-4">
+      <h2 class="text-xl font-semibold">Thông Tin Khóa Học</h2>
+      <p class="mt-2 text-gray-600" *ngIf="course">
+        ID Khóa Học: <strong>{{ course.id }}</strong>
+      </p>
+      <form [formGroup]="courseForm" class="mt-4">
+        <div class="mb-4">
+          <label class="block text-gray-700">Tên Khóa Học:</label>
+          <input
+            formControlName="name"
+            type="text"
+            class="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
+            placeholder="Nhập tên khóa học"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700">Mô Tả:</label>
+          <textarea
+            formControlName="description"
+            rows="4"
+            class="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
+            placeholder="Nhập mô tả khóa học"
+          ></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700">Thời Gian (Giờ):</label>
+          <input
+            formControlName="duration"
+            type="number"
+            class="mt-1 block w-20 border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
+            placeholder="Nhập thời gian"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700">Ảnh:</label>
+          <input
+            formControlName="avatar"
+            type="text"
+            class="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
+            placeholder="Nhập URL ảnh"
+          />
+        </div>
+
+        <div class="flex justify-end mb-4">
+          <button
+            type="button"
+            (click)="updateCourse()"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            *ngIf="courseId"
+          >
+            Cập nhật
+          </button>
+          <button
+            type="button"
+            (click)="createCourse()"
+            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            *ngIf="!courseId"
+          >
+            Tạo Mới
+          </button>
+          <button
+            type="button"
+            (click)="deleteCourse()"
+            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          >
+            Xóa
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="bg-white p-4 rounded shadow mt-6" *ngIf="course">
+      <h2 class="text-xl font-semibold flex justify-between items-center">
+        Danh Sách Bài Học
+        <button
+          [routerLink]="['/admin/courses-create-lesson', courseId]"
+          class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+        >
+          Thêm Bài Học
+        </button>
+      </h2>
+      <ul class="mt-4">
+        <li
+          *ngFor="let lesson of course.lessons"
+          class="border-b last:border-b-0 py-2 flex justify-between items-center"
+        > {{lesson.id}}
+          <span class="font-semibold">{{ lesson.name }}</span>
+          {{ lesson.description }}
+          <button
+            (click)="deleteLesson(lesson.id)"
+            class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+          >
+            Xóa
+          </button>
+        </li>
+      </ul>
+      <div
+        *ngIf="course.lessons.length === 0"
+        class="text-gray-500 text-center mt-2"
+      >
+        Không có bài học nào cho khóa học này.
+      </div>
+    </div>
+  </div>
+
+
+</div>

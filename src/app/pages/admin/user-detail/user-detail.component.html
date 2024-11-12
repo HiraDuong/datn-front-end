@@ -1,0 +1,64 @@
+
+<app-admin-nav></app-admin-nav>
+<form
+  [formGroup]="userForm"
+  (ngSubmit)="submit()"
+  class="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md"
+>
+  <div *ngIf="user">
+    <h1 class="text-2xl font-bold mb-4">Thông Tin Người Dùng</h1>
+    <p class="mb-2"><strong>ID:</strong> {{ userId }}</p>
+    <div class="mb-4">
+      <label for="username" class="block text-sm font-medium text-gray-700"
+        >Tên:</label
+      >
+      <input
+        id="username"
+        formControlName="username"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="email" class="block text-sm font-medium text-gray-700"
+        >Email:</label
+      >
+      <input
+        id="email"
+        formControlName="email"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="role" class="block text-sm font-medium text-gray-700"
+        >Cập Nhật Vai Trò:</label
+      >
+      <select
+        id="role"
+        formControlName="role"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300"
+      >
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        <!-- Thêm các vai trò khác nếu cần -->
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="mr-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700"
+    >
+      Cập Nhật Người Dùng
+    </button>
+    <button
+      type="button"
+      (click)="deleteUser()"
+      class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700"
+    >
+      Xóa Người Dùng
+    </button>
+  </div>
+
+  <div *ngIf="!user">
+    <p>Đang tải thông tin người dùng...</p>
+  </div>
+</form>

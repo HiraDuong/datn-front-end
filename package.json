@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
     "@auth0/angular-jwt": "^5.2.0",
+    "@fortawesome/fontawesome-free": "^6.6.0",
     "front-end": "file:",
     "jwt-decode": "^4.0.0",
     "ngx-cookie-service": "^18.0.0",

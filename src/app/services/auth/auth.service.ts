@@ -7,7 +7,7 @@ import { BEResponse } from '../../types/model/response.type';
 import { CODE_CREATED, CODE_SUCCESS } from '../../utils/constants.util';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../user/user.service';
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '../../types/model/jwt-payload.type';
 @Injectable({
   providedIn: 'root',
@@ -41,9 +41,11 @@ export class AuthService {
         if (res.code == CODE_SUCCESS) {
           this.setToken(res.data);
           // decode jwt token and set user id
-          const decodedToken:JwtPayload = jwtDecode(res.data);
+          const decodedToken: JwtPayload = jwtDecode(res.data);
           this.userService.setUserId(decodedToken.id);
+          this.userService.setUserInfo(decodedToken);
           console.log('User ID:', this.userService.getUserId());
+          console.log('User info:', this.userService.getUserInfo());
         } else {
           throw new Error(res.message);
         }

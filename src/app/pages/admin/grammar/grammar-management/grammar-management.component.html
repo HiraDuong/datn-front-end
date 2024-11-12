@@ -1,0 +1,32 @@
+<app-admin-nav></app-admin-nav>
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-4">Quản Lý Ngữ Pháp</h1>
+
+  <button (click)="navigateToCreateGrammar()" class="mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Tạo Ngữ Pháp Mới</button>
+
+  <div *ngIf="loading" class="mt-4">Đang tải...</div>
+
+  <table *ngIf="!loading" class="min-w-full bg-white border border-gray-300">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="py-2 px-4 border-b">ID</th>
+        <th class="py-2 px-4 border-b">Quy Tắc Ngữ Pháp</th>
+        <th class="py-2 px-4 border-b">Hành Động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grammar of grammars">
+        <td class="py-2 px-4 border-b text-center">{{ grammar.id }}</td>
+        <td class="py-2 px-4 border-b">{{ grammar.name }}</td>
+        <td class="py-2 px-4 border-b text-center">
+          <button (click)="deleteGrammar(grammar.id)" class="text-red-600 hover:text-red-800">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mt-4">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="mr-2 bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Trang Trước</button>
+    <button (click)="nextPage()" [disabled]="currentPage * limit >= totalRecords" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Trang Sau</button>
+  </div>
+</div>

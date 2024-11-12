@@ -1,0 +1,36 @@
+<app-admin-nav></app-admin-nav>
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-4">Quản Lý Từ Vựng</h1>
+
+  <button (click)="navigateToCreateVocabulary()" class="mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Tạo Từ Vựng Mới</button>
+
+  <table class="min-w-full bg-white border border-gray-300">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="py-2 px-4 border-b">ID</th>
+        <th class="py-2 px-4 border-b">Từ Vựng</th>
+        <th class="py-2 px-4 border-b">Nghĩa</th>
+        <th class="py-2 px-4 border-b">Cách Phát Âm</th>
+        <th class="py-2 px-4 border-b">Hành Động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vocabulary of vocabularies; let i = index">
+        <td class="py-2 px-4 border-b">{{ vocabulary.id }}</td>
+        <td class="py-2 px-4 border-b">{{ vocabulary.word }}</td>
+        <td class="py-2 px-4 border-b">{{ vocabulary.meaning }}</td>
+        <td class="py-2 px-4 border-b">{{ vocabulary.pronunciation }}</td>
+        <td class="py-2 px-4 border-b">
+          <button (click)="deleteVocabulary(vocabulary.id)" class="text-red-600 hover:text-red-800">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mt-4">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="mr-2 bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Trang Trước</button>
+    <button (click)="nextPage()" [disabled]="currentPage * limit >= totalRecords" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Trang Sau</button>
+  </div>
+
+  <div *ngIf="loading" class="mt-4">Đang tải...</div>
+</div>

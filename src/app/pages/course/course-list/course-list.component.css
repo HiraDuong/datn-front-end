@@ -1,0 +1,17 @@
+.loader {
+  border: 8px solid #f3f3f3; /* Màu nền */
+  border-top: 8px solid #3498db; /* Màu của loader */
+  border-radius: 50%;
+  width: 40px; /* Kích thước loader */
+  height: 40px;
+  animation: spin 1s linear infinite; /* Hiệu ứng quay */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,58 @@
+<app-admin-nav></app-admin-nav>
+<div class="course-management p-6 bg-gray-50">
+  <h1 class="text-3xl font-bold text-center mb-6">Danh Sách Khóa Học</h1>
+
+  <!-- Hiển thị loading nếu đang tải dữ liệu -->
+  <app-loading *ngIf="loading"></app-loading>
+
+  <div *ngIf="!loading">
+    <button
+  class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
+  [routerLink]="['/admin/course-detail']">
+  Tạo Mới Khóa Học
+</button>
+
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b">ID</th>
+          <th class="py-2 px-4 border-b">Tiêu Đề</th>
+          <th class="py-2 px-4 border-b">Mô Tả</th>
+          <th class="py-2 px-4 border-b">Thời Lượng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td class="py-2 px-4 border-b text-center">
+            <a
+              [routerLink]="['/admin/course-detail', course.id]"
+              class="text-blue-500 hover:underline"
+              >{{ course.id }}</a
+            >
+          </td>
+          <td class="py-2 px-4 border-b">{{ course.name }}</td>
+          <td class="py-2 px-4 border-b">{{ course.description }}</td>
+          <td class="py-2 px-4 border-b">{{ course.duration }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination flex justify-center items-center mt-6 space-x-2">
+      <button
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+        class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+      >
+        Trước
+      </button>
+      <span class="text-lg">Trang {{ currentPage }}</span>
+      <button
+        (click)="nextPage()"
+        [disabled]="currentPage * limit >= totalRecords"
+        class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+      >
+        Sau
+      </button>
+    </div>
+  </div>
+</div>

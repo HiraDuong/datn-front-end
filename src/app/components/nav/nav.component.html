@@ -1,0 +1,146 @@
+<nav class="bg-gray-200 shadow shadow-gray-300 w-100 px-8 md:px-auto">
+  <div
+    class="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-center flex-wrap md:flex-nowrap"
+  >
+    <!-- Logo -->
+    <div class="text-indigo-500 md:order-1">
+      <!-- Heroicon - Chip Outline -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-10 w-10"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+        />
+      </svg>
+    </div>
+    <div class="text-gray-500 order-3 w-full md:w-auto md:order-2">
+      <ul class="flex font-semibold justify-between">
+        <li class="md:px-4 md:py-2 text-indigo-500 flex items-center gap-1">
+          <!-- Home Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              d="M10 3a1 1 0 00-.707.293l-7 7a1 1 0 101.414 1.414L4 11.414V17a1 1 0 001 1h10a1 1 0 001-1v-5.586l1.293 1.293a1 1 0 001.414-1.414l-7-7A1 1 0 0010 3z"
+            />
+          </svg>
+          <a routerLink="/">Home</a>
+        </li>
+        <li class="md:px-4 md:py-2 text-indigo-500 flex items-center gap-1">
+          <app-search-bar></app-search-bar>
+        </li>
+        <li
+          class="md:px-4 md:py-2 hover:text-indigo-400 flex items-center gap-1"
+        >
+          <!-- Course Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              d="M9.75 2.75h-5A1.75 1.75 0 003 4.5v11A1.75 1.75 0 004.75 17h10.5A1.75 1.75 0 0017 15.25v-11A1.75 1.75 0 0015.25 2.5h-5l-0.5.25zM5 6h10v6H5V6z"
+            />
+          </svg>
+          <a routerLink="/course">Course</a>
+        </li>
+        <li
+          class="md:px-4 md:py-2 hover:text-indigo-400 flex items-center gap-1"
+        >
+          <!-- Message Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              d="M2.5 5a.5.5 0 01.5-.5h14a.5.5 0 01.5.5v7a.5.5 0 01-.5.5H10.42l-1.16 2.32a1 1 0 01-1.64-1.12L8.08 13H3a.5.5 0 01-.5-.5V5z"
+            />
+          </svg>
+          <a routerLink="/message">Message</a>
+        </li>
+        <li
+          class="md:px-4 md:py-2 hover:text-indigo-400 flex items-center gap-1"
+        >
+          <!-- Notify Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a2 2 0 002-2H8a2 2 0 002 2zm6-6V9a6 6 0 10-12 0v3L3 14.5A1 1 0 004 16h12a1 1 0 001-1.5L16 12z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <a routerLink="#">Notify</a>
+        </li>
+        <li
+          *ngIf="userId"
+          class="md:px-4 md:py-2 hover:text-indigo-400 flex items-center relative"
+          (click)="toggleDropdown()"
+        >
+          <img
+            [src]="userAvatarUrl"
+            alt="user-avatar"
+            class="h-8 w-8 rounded-full cursor-pointer"
+          />
+
+          <!-- Dropdown menu -->
+          <div
+            *ngIf="dropdownOpen"
+            class="absolute top-0 left-full mt-2 w-28 bg-white rounded-lg shadow-lg py-2 z-10"
+          >
+            <a
+              routerLink="/profile"
+              class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+            >
+              Profile
+            </a>
+            <a
+              (click)="logout()"
+              class="block px-4 py-2 text-gray-800 hover:bg-gray-100 cursor-pointer"
+            >
+              Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="!userId" class="order-2 md:order-3">
+      <button
+        routerLink="/login"
+        class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2"
+      >
+        <!-- Heroicons - Login Solid -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <span>Login</span>
+      </button>
+    </div>
+  </div>
+</nav>
