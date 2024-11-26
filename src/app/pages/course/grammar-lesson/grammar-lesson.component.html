@@ -1,0 +1,40 @@
+
+<app-nav></app-nav>
+<div class="vocabulary-lesson-container" >
+  <!-- Video Bài Học -->
+  <div class="video-container">
+    <iframe width="940" height="700" src="https://www.youtube.com/embed/q8jpjL0GPhk?si=VZ4iFEn2GXz7N4rH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="lesson-sidebar">
+    <!-- Sidebar: Bài Học -->
+    <div class="sidebar-section">
+      <h2>Khóa học {{course?.name}}</h2>
+      <h3 class="sidebar-title">Bài {{lesson?.number}} {{lesson?.name}}</h3>
+
+    <!-- Nút Thực Hành -->
+    <h3 class="sidebar-title">
+        Danh sách Ngữ Pháp
+
+      </h3>
+      <div class="h-44 overflow-y-auto">
+        <div *ngFor="let grammar of grammars" >
+          <h4 >{{ grammar.name }}</h4>
+        </div>
+      </div>
+
+    <div class="action-buttons">
+
+      <button class="btn btn-secondary  !bg-blue-500 text-white rounded-lg !hover:bg-blue-700"
+      [routerLink]="['/task']" [queryParams]="{ lessonId: lessonId }">
+     Kiểm tra
+    </button>
+
+      <button class="btn btn-secondary  !bg-gray-500 text-white rounded-lg !hover:bg-gray-700"
+      [routerLink]="['/learn', lessonId]"
+      >Quay lại</button>
+    </div>
+  </div>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>

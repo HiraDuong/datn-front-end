@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CourseByIdDTO } from '../../../../types/dtos/course.dto';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../../../../services/course/course.service';
@@ -26,10 +26,10 @@ export class CourseDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseForm = this.fb.group({
-      name: [''],
-      description: [''],
-      duration: [0],
-      avatar: [''],
+      name: ['', [Validators.required]],
+  description: ['', [Validators.required]],
+  duration: [null, [Validators.required, Validators.min(1)]],
+  avatar: ['', [Validators.required, Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/)]]
     });
 
     this.courseId = Number(this.route.snapshot.paramMap.get('id'));

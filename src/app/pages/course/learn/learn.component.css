@@ -1,4 +1,95 @@
-.rotate-180 {
-  transform: rotate(180deg);
+/* Toàn bộ trang */
+.learn-details {
+  background-color: #f9fafb; /* Màu nền sáng dịu */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  max-width: 800px;
+  margin: 0 auto; /* Căn giữa */
+}
+
+/* Tiêu đề bài học */
+.learn-details h1 {
+  color: #2c5282; /* Xanh lam đậm */
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Nội dung mô tả */
+.learn-details p {
+  color: #4a5568; /* Xám đậm */
+  line-height: 1.6;
+}
+
+/* Tiêu đề các phần (Từ vựng, Ngữ pháp, Bài tập) */
+.learn-details h2 {
+  color: #2c5282; /* Xanh lam đậm */
+  border-bottom: 2px solid #2b6cb0; /* Gạch chân nổi bật */
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Mũi tên toggle */
+.learn-details h2 span {
   transition: transform 0.3s ease;
+}
+
+/* Danh sách mục (Từ vựng, Ngữ pháp, Bài tập) */
+.learn-details ul {
+  background-color: #edf2f7; /* Nền xám nhạt */
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+/* Item trong danh sách */
+.learn-details ul li {
+  margin-bottom: 12px;
+}
+
+/* Ví dụ và mô tả */
+.learn-details ul li p {
+  color: #4a5568;
+  margin-top: 4px;
+}
+
+/* Nút chức năng */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.action-buttons a {
+  padding: 12px 24px;
+  background-color: #2c5282; /* Xanh lam */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.action-buttons a:hover {
+  background-color: #2b6cb0; /* Xanh lam đậm hơn */
+}
+/* Nút Quay lại */
+.back-btn {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748; /* Xám đậm */
+  background-color: #edf2f7; /* Xám rất nhạt */
+  padding: 8px 16px;
+  border: 1px solid #cbd5e0; /* Viền xám */
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #e2e8f0; /* Xám đậm hơn khi hover */
+  color: #1a202c; /* Xám tối hơn */
 }

@@ -1,0 +1,40 @@
+
+<app-nav></app-nav>
+<div class="vocabulary-lesson-container" >
+  <!-- Video Bài Học -->
+  <div class="video-container">
+    <iframe width="940" height="700" src="https://www.youtube.com/embed/9KC_mwHXbgU?si=ZV6GqDda5siKgBYL" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="lesson-sidebar">
+    <!-- Sidebar: Bài Học -->
+    <div class="sidebar-section">
+      <h2>Khóa học {{course?.name}}</h2>
+      <h3 class="sidebar-title">Bài {{lesson?.number}} {{lesson?.name}}</h3>
+
+    <!-- Nút Thực Hành -->
+    <div class="action-buttons">
+      <button class="btn btn-primary !bg-blue-500 !text-white !hover:bg-blue-700"
+      [routerLink]="['/flashcard']" [queryParams]="{ courseId: courseId, lessonId: lessonId }">
+      Flashcard
+    </button>
+
+    <button class="btn btn-primary !bg-green-500 !text-white !hover:bg-green-700"
+      [routerLink]="['/vocabulary/practice']" [queryParams]="{ courseId: courseId, lessonId: lessonId }">
+      Luyện tập
+    </button>
+
+    <button class="btn btn-primary !bg-orange-500 !text-white !hover:bg-orange-700"
+      [routerLink]="['/grammar']" [queryParams]="{ courseId: courseId, lessonId: lessonId }">
+      Học Ngữ Pháp
+    </button>
+
+      <button class="btn btn-secondary  !bg-gray-500 text-white rounded-lg !hover:bg-gray-700"
+      [routerLink]="['/learn', lessonId]"
+
+      >Quay lại</button>
+    </div>
+  </div>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>

@@ -1,0 +1,110 @@
+/* Tổng thể form */
+form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 16px;
+}
+
+/* Các tiêu đề của label */
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568; /* Màu xám đậm */
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Input và Textarea */
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d2d6dc; /* Màu viền nhạt */
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng khi focus */
+input:focus,
+textarea:focus {
+  border-color: #3182ce; /* Màu xanh nổi bật */
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.3);
+  outline: none;
+}
+
+/* Nút bấm */
+button {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  width: 100px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Nút cập nhật */
+button.bg-blue-600 {
+  background-color: #3182ce;
+}
+
+button.bg-blue-600:hover {
+  background-color: #2b6cb0;
+  transform: scale(1.05);
+}
+
+/* Nút tạo mới */
+button.bg-green-600 {
+  background-color: #38a169;
+}
+
+button.bg-green-600:hover {
+  background-color: #2f855a;
+  transform: scale(1.05);
+}
+
+/* Nút xóa */
+button.bg-red-600 {
+  background-color: #e53e3e;
+}
+
+button.bg-red-600:hover {
+  background-color: #c53030;
+  transform: scale(1.05);
+}
+
+/* Lỗi xác thực */
+.validation-error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #e53e3e;
+}
+
+/* Đổ bóng nhẹ cho phần lỗi */
+.validation-error:before {
+  content: "⚠ ";
+}
+
+/* Khoảng cách giữa các trường */
+.mb-4 {
+  margin-bottom: 20px;
+}
+
+/* Cách hiển thị tiêu đề form */
+h1, h2 {
+  color: #2d3748;
+  font-weight: bold;
+}
+
+/* Tùy chọn tổng thể */
+body {
+  font-family: 'Inter', sans-serif; /* Font chữ hiện đại và dễ nhìn */
+  background-color: #f7fafc; /* Màu nền trang dịu nhẹ */
+  margin: 0;
+}

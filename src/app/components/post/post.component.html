@@ -1,0 +1,20 @@
+<div class="post">
+  <div class="post-header">
+    <h3>User {{ post.userId }}</h3>
+    <span>{{ post.createdAt | date:'short' }}</span>
+  </div>
+  <div class="post-content">
+    <p>{{ post.content }}</p>
+  </div>
+  <div class="post-actions">
+    <button (click)="onLike()">Like ({{ post.likes }})</button>
+  </div>
+  <div class="comments">
+    <h4>Comments</h4>
+    <div *ngFor="let comment of post.comments">
+      <p><strong>User {{ comment.userId }}:</strong> {{ comment.content }}</p>
+    </div>
+    <input [(ngModel)]="commentContent" placeholder="Add a comment..." />
+    <button (click)="onAddComment()">Post Comment</button>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <div class="course-details p-6" *ngIf="!loading; else loadingTemplate">
   <h1 class="text-3xl font-bold">{{ course?.name }}</h1>
   <img
@@ -8,10 +9,28 @@
   <p class="mt-4">{{ course?.description }}</p>
   <p class="mt-2">Thời gian: {{ course?.duration }} giờ</p>
 
-  <h2 class="text-2xl font-semibold mt-6">Các bài học:</h2>
-  <ul class="list-disc pl-6 mt-2">
-    <li *ngFor="let lesson of course?.lessons">
-      <strong>Bài học {{ lesson.number }}: {{ lesson.name }}</strong>
+  <!-- Khu vực tiêu đề và nút quay lại -->
+    <div>
+      <button
+      *ngIf="!process"
+      (click)="subscribe()"
+      class="bg-orange-500 hover:bg-orange-700 mr-4 px-4 py-2 rounded text-white font-bold">
+      Đăng ký
+    </button>
+
+      <div *ngIf="process">
+        Tiến độ {{ (process?.length -1 || 0) }} / {{ (course?.lessons?.length || 1)  }}
+      </div>
+      <a routerLink="/course" class="back-btn">Quay lại</a>
+    </div>
+  <div class="header-section" (click)="toggleExpanded()">
+    <h2>Các bài học: </h2>
+    <span class="ml-2 text-blue-500" [ngClass]="{ 'rotate-180': expanded }">▼</span>
+</div>
+
+  <ul class="list-disc pl-6 mt-2" *ngIf="expanded">
+    <li *ngFor="let lesson of course?.lessons let index = index" >
+      <strong>Bài học {{ index +1 }}: {{ lesson.name }}</strong>
       <p>{{ lesson.description }}</p>
       <p class="text-gray-500">Thời gian: {{ lesson.duration }} phút</p>
       <a
@@ -20,7 +39,6 @@
       >
         Học
       </a>
-      <!-- Nút Học -->
     </li>
   </ul>
 </div>

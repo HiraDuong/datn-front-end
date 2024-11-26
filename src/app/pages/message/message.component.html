@@ -1,0 +1,72 @@
+<app-nav></app-nav>
+<div class="chat-container">
+  <!-- Sidebar trái -->
+  <div class="sidebar">
+      <div class="sidebar-header">
+          <input [(ngModel)]="searchText" type="text" placeholder="Tìm kiếm trên Messenger">
+      </div>
+
+
+      <ul class="chat-list">
+        <li
+          *ngFor="let chat of filteredChats"
+          class="chat-item"
+          [class.active]="chat === activeChat"
+          (click)="selectChat(chat)">
+          <div class="chat-avatar"></div>
+          <div class="chat-details">
+            <h4>{{ chat.name }}</h4>
+            <p>{{ chat.messages[0].text }}</p>
+          </div>
+        </li>
+      </ul>
+
+  </div>
+
+  <!-- Main Chat -->
+  <div class="main-chat">
+      <div class="chat-header">
+          <div class="header-left">
+              <h3>{{ activeChat.name }}</h3>
+          </div>
+          <div class="header-right">
+              <button class="action-btn" (click)="showInfo()">Thông tin</button>
+              <button class="action-btn" (click)="showSettings()">Tùy chỉnh</button>
+          </div>
+      </div>
+      <div class="chat-content">
+          <div *ngFor="let message of activeChat.messages" class="message" [ngClass]="{'user-message': message.fromUser, 'received-message': !message.fromUser}">
+            <p *ngIf="message.type === 'text'">{{ message.text }}</p>
+            <img *ngIf="message.type === 'image'" [src]="message.content" alt="Image" class="message-image">
+            <a *ngIf="message.type === 'file'" [href]="message.content" download>{{ message.content }}</a>
+          </div>
+      </div>
+      <div class="chat-input">
+          <input [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" type="text" placeholder="Aa">
+          <div>
+            <button class="action-btn" (click)="showEmoji()">😀</button>
+            <button class="action-btn" (click)="showFilePicker()">📎</button>
+            <input
+              type="file"
+              (change)="onFileSelected($event)"
+              accept="image/*,application/pdf"
+              class="file-input"
+              hidden
+              #fileInput
+            >
+          </div>
+
+          <button class="send-btn" (click)="sendMessage()">Gửi</button>
+      </div>
+  </div>
+
+  <!-- Sidebar phải hiển thị thông tin người dùng và nút gọi điện -->
+  <div class="right-sidebar">
+    <div class="user-info">
+        <img [src]="activeChat.avatar" alt="User Avatar" class="user-avatar">
+        <h4>{{ activeChat.name }}</h4>
+        <p>{{ activeChat.status }}</p>
+    </div>
+    <button class="call-btn" (click)="makeCall()">Gọi điện</button>
+</div>
+

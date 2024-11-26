@@ -19,6 +19,9 @@
             class="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
             placeholder="Nhập tên khóa học"
           />
+          <div *ngIf="courseForm.get('name')?.touched && courseForm.get('name')?.invalid" class="validation-error">
+            Tên khóa học không được để trống.
+          </div>
         </div>
 
         <div class="mb-4">
@@ -29,6 +32,9 @@
             class="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
             placeholder="Nhập mô tả khóa học"
           ></textarea>
+          <div *ngIf="courseForm.get('description')?.touched && courseForm.get('description')?.invalid" class="validation-error">
+            Mô tả không được để trống.
+          </div>
         </div>
 
         <div class="mb-4">
@@ -39,6 +45,9 @@
             class="mt-1 block w-20 border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
             placeholder="Nhập thời gian"
           />
+          <div *ngIf="courseForm.get('duration')?.touched && courseForm.get('duration')?.invalid" class="validation-error">
+            Thời gian phải là số và không được để trống.
+          </div>
         </div>
 
         <div class="mb-4">
@@ -49,9 +58,27 @@
             class="mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300"
             placeholder="Nhập URL ảnh"
           />
+          <div *ngIf="courseForm.get('avatar')?.touched && courseForm.get('avatar')?.invalid" class="validation-error">
+            URL ảnh không hợp lệ hoặc không được để trống.
+          </div>
         </div>
 
         <div class="flex justify-end mb-4">
+          <button
+          *ngIf="courseId"
+            type="button"
+            (click)="deleteCourse()"
+            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          >
+            Xóa
+          </button>
+          <button
+            type="button"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+            [routerLink]="['/admin/courses']"
+          >
+            Quay Lại
+          </button>
           <button
             type="button"
             (click)="updateCourse()"
@@ -68,15 +95,10 @@
           >
             Tạo Mới
           </button>
-          <button
-            type="button"
-            (click)="deleteCourse()"
-            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-          >
-            Xóa
-          </button>
+
         </div>
       </form>
+
     </div>
 
     <div class="bg-white p-4 rounded shadow mt-6" *ngIf="course">

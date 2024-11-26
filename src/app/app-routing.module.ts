@@ -14,6 +14,12 @@ import { CourseDetailComponent } from './pages/admin/course/course-detail/course
 import { LessonCreateComponent } from './pages/admin/course/lesson-create/lesson-create.component';
 import { VocabularyManagementComponent } from './pages/admin/vocabulary/vocabulary-management/vocabulary-management.component';
 import { GrammarManagementComponent } from './pages/admin/grammar/grammar-management/grammar-management.component';
+import { VocabularyLessonComponent } from './pages/course/vocabulary-lesson/vocabulary-lesson.component';
+import { VocabularyFlashcardComponent } from './pages/course/vocabulary-flashcard/vocabulary-flashcard.component';
+import { VocabularyPracticeComponent } from './pages/course/vocabulary-practice/vocabulary-practice.component';
+import { GrammarLessonComponent } from './pages/course/grammar-lesson/grammar-lesson.component';
+import { MessageComponent } from './pages/message/message.component';
+import { QuizComponent } from './pages/course/quiz/quiz.component';
 
 const routes: Routes = [
   {
@@ -44,6 +50,15 @@ const routes: Routes = [
     path: 'learn/:id',
     component: LearnComponent,
   },
+  { path: 'vocabulary', component: VocabularyLessonComponent },
+  { path: 'grammar', component: GrammarLessonComponent },
+  { path: 'task', component: QuizComponent },
+
+
+  { path: 'flashcard', component: VocabularyFlashcardComponent },
+  { path: 'vocabulary/practice', component: VocabularyPracticeComponent},
+  { path: 'message', component: MessageComponent },
+
   { path: 'admin/users', component: UserManagementComponent },
   { path: 'admin/user-detail/:id', component: UserDetailComponent },
   { path: 'admin/courses', component: CourseManagementComponent },

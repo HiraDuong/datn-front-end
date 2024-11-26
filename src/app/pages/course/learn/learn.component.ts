@@ -7,7 +7,7 @@ import { LessonByIdDTO } from '../../../types/dtos/lesson.dto';
 @Component({
   selector: 'app-learn',
   templateUrl: './learn.component.html',
-  styleUrls: ['./learn.component.css'], // Sửa thành styleUrls
+  styleUrls: ['./learn.component.css'],
 })
 export class LearnComponent implements OnInit {
   lessonId!: number; // ID của bài học
@@ -28,7 +28,9 @@ export class LearnComponent implements OnInit {
     // Lấy ID từ route
     this.lessonId = Number(this.route.snapshot.paramMap.get('id'));
     console.log('Lesson ID:', this.lessonId);
-    this.fetchLessonDetails(); // Gọi hàm để lấy chi tiết bài học
+
+    // Gọi API để lấy chi tiết bài học
+    this.fetchLessonDetails();
   }
 
   // Hàm gọi API để lấy chi tiết bài học
@@ -37,6 +39,7 @@ export class LearnComponent implements OnInit {
       next: (response) => {
         this.lesson = response; // Gán dữ liệu bài học
         this.loading = false; // Đặt trạng thái loading là false
+        this.lessonService.setLesson(this.lesson)
       },
       error: (error) => {
         this.errorMessage = error.message; // Gán thông báo lỗi nếu có
@@ -44,6 +47,7 @@ export class LearnComponent implements OnInit {
       },
     });
   }
+
   toggleVocabulary(): void {
     this.vocabExpanded = !this.vocabExpanded;
   }

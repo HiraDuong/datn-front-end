@@ -1,0 +1,61 @@
+<app-nav></app-nav>
+<div class="quiz-container">
+  <h1 class="text-2xl font-bold text-center mb-6">Quiz - Vocabulary and Grammar</h1>
+  <div *ngIf="!isSubmitted">
+    <div *ngFor="let question of quizQuestions; let i = index" class="mb-4">
+      <h3 class="font-semibold">Câu {{ i + 1 }}: {{ question.question }}</h3>
+      <div class="mt-2">
+        <label *ngFor="let option of question.options; let j = index" class="block">
+          <input
+            type="radio"
+            [name]="'question-' + i"
+            [value]="j"
+            [(ngModel)]="userAnswers[i]"
+            class="mr-2"
+          />
+          {{ option }}
+        </label>
+      </div>
+    </div>
+    <div class="flex w-full justify-center items-center">
+      <button
+      [routerLink]="['/learn', lessonId]"
+
+      class="bg-gray-500 text-white px-4 py-2 rounded mr-10 hover:bg-gray-700 mt-4">
+      Quay lại
+    </button>
+    <button
+      (click)="submitQuiz()"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4">
+      Nộp bài
+    </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="isSubmitted" class="flex items-center justify-center flex-col">
+    <h2 class="text-xl font-bold text-center">Kết quả</h2>
+    <p class="text-center mt-4">
+      Bạn đã đạt {{ score }}/{{ quizQuestions.length }} điểm.
+    </p>
+    <div *ngIf="score/quizQuestions.length >= 3/4" class="text-center text-green-600 mt-2">
+      🎉 Chúc mừng! Bạn đã vượt qua bài kiểm tra!
+    </div>
+    <div *ngIf="score/quizQuestions.length < 3/4" class="text-center text-red-600 mt-2">
+      😢 Rất tiếc! Bạn chưa đạt yêu cầu. Hãy thử lại!
+    </div>
+    <div class="flex w-full justify-center items-center">
+
+    <button
+      (click)="resetQuiz()"
+      class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 mt-4 mr-8">
+      Làm lại
+    </button>
+    <button
+    [routerLink]="['/learn', nextLessonId]"
+      class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-700 mt-4">
+      Học tiếp
+    </button>
+    </div>
+  </div>
+</div>

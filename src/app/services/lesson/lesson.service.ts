@@ -12,6 +12,8 @@ import {
 import { CODE_CREATED, CODE_NO_CONTENT, CODE_SUCCESS } from '../../utils/constants.util';
 import { BEResponse } from '../../types/model/response.type';
 
+import { CourseByIdDTO } from '../../types/dtos/course.dto';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +21,8 @@ export class LessonService {
   private readonly lessonApiUrl: string = `${environment.apiUrl}/lesson`;
 
   constructor(private readonly http: HttpClient) {}
-
+  lesson:LessonByIdDTO | null = null;
+  course: CourseByIdDTO | null = null;
   listLessons(
     limit: number,
     page: number,
@@ -109,5 +112,32 @@ export class LessonService {
           return throwError(() => new Error(error.message));
         }),
       );
+  }
+ // Thêm phương thức lấy quiz
+ getQuiz(): Observable<BEResponse> {
+  return this.http.get<BEResponse>(`http://localhost:3000/api/v1/task`).pipe(
+    map((response: BEResponse) => {
+      if (response.code === CODE_SUCCESS) {
+        return response;
+      } else {
+        throw new Error('Error: Failed to load quiz');
+      }
+    }),
+    catchError((error) => {
+      return throwError(() => new Error(error.message));
+    }),
+  );
+}
+  setLesson(lesson: LessonByIdDTO) {
+    this.lesson = lesson;
+  }
+  getLesson(): LessonByIdDTO | null {
+    return this.lesson;
+  }
+  setCourse(course: CourseByIdDTO) {
+    this.course = course;
+  }
+  getCourse(): CourseByIdDTO | null {
+    return this.course;
   }
 }

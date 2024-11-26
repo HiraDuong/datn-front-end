@@ -15,3 +15,131 @@
     transform: rotate(360deg);
   }
 }
+
+/* Tổng thể của danh sách khóa học */
+.course-list {
+  background-color: #f9fafb; /* Nền xám nhạt */
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề chính */
+.course-list h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2d3748; /* Xám đậm */
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Lưới danh sách khóa học */
+.course-list .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 thẻ mỗi hàng */
+  gap: 16px; /* Khoảng cách giữa các thẻ */
+  align-items: stretch; /* Đảm bảo chiều cao đồng nhất */
+}
+
+/* Card khóa học */
+.course-list .grid > div {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Cố định chiều cao cho tất cả các thẻ */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-list .grid > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tiêu đề khóa học */
+.course-list h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8px;
+  height: 40px; /* Cố định chiều cao tiêu đề */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mô tả khóa học */
+.course-list p {
+  font-size: 14px;
+  color: #718096; /* Xám nhạt */
+  height: 60px; /* Cố định chiều cao mô tả */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Giới hạn số dòng */
+  -webkit-box-orient: vertical;
+}
+
+/* Ảnh minh họa */
+.course-list img {
+  width: 100%;
+  height: 120px; /* Cố định chiều cao ảnh */
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+/* Nút xem chi tiết */
+.course-list a.btn {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #3182ce; /* Xanh lam */
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.course-list a.btn:hover {
+  background-color: #2b6cb0; /* Xanh lam đậm */
+}
+
+/* Phân trang */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pagination button {
+  background-color: #e2e8f0; /* Xám nhạt */
+  color: #2d3748; /* Xám đậm */
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover:not([disabled]) {
+  background-color: #cbd5e0; /* Sáng hơn khi hover */
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+}

@@ -1,6 +1,6 @@
-<div class="course-list p-6 bg-gray-50">
-  <h1 class="text-3xl font-bold text-center mb-6">Danh Sách Khóa Học</h1>
-
+<app-nav></app-nav>
+<h1 class="text-3xl font-bold text-center mb-6">Danh Sách Khóa Học</h1>
+<div class="course-list p-6 bg-gray-50 h-4/5">
   <!-- Hiển thị loading nếu đang tải dữ liệu -->
   <app-loading *ngIf="loading"></app-loading>
 
@@ -10,10 +10,15 @@
   >
     <div
       *ngFor="let course of courses"
-      class="bg-white shadow-md rounded-lg p-4 transition-transform transform hover:scale-105"
+      class="bg-white shadow-md rounded-lg p-4 transition-transform transform hover:scale-105 max-w-80"
     >
-      <h2 class="text-xl font-semibold text-gray-800">{{ course.name }}</h2>
-      <p class="text-gray-600">{{ course.description }}</p>
+      <h2 class="text-xl font-semibold text-gray-800" [title]="course.name">
+        {{ course.name }}
+      </h2>
+      <p class="text-gray-600 h-20" [title]="course.description">
+        {{ course.description }}
+      </p>
+
       <img
         [src]="course.avatar"
         alt="{{ course.name }}"
@@ -26,25 +31,24 @@
       >
     </div>
   </div>
-
-  <div
-    class="pagination flex justify-center items-center mt-6 space-x-2"
-    *ngIf="!loading"
+</div>
+<div
+  class="pagination flex justify-center items-center mt-10 w-full space-x-2"
+  *ngIf="!loading"
+>
+  <button
+    (click)="previousPage()"
+    [disabled]="currentPage === 1"
+    class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
   >
-    <button
-      (click)="previousPage()"
-      [disabled]="currentPage === 1"
-      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
-    >
-      Trước
-    </button>
-    <span class="text-lg">Trang {{ currentPage }}</span>
-    <button
-      (click)="nextPage()"
-      [disabled]="currentPage * limit >= totalRecords"
-      class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
-    >
-      Sau
-    </button>
-  </div>
+    Trước
+  </button>
+  <span class="text-lg">Trang {{ currentPage }}</span>
+  <button
+    (click)="nextPage()"
+    [disabled]="currentPage * limit >= totalRecords"
+    class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 disabled:opacity-50"
+  >
+    Sau
+  </button>
 </div>

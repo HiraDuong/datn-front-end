@@ -1,0 +1,53 @@
+<app-nav></app-nav>
+  <!-- Vocabulary Management -->
+  <div class= "w-full flex items-center justify-around mt-4" >
+    <button class="back-btn  !bg-gray-500 text-white rounded-lg !hover:bg-gray-700"
+    [routerLink]="['/vocabulary']" [queryParams]="{ courseId: courseId, lessonId: lessonId }"
+
+    >
+      Quay lại
+    </button>
+
+    <button class="play-btn" *ngIf="vocabulary[currentVocabularyIndex]?.word" (click)="playPronunciation(vocabulary[currentVocabularyIndex].word)">🔊</button>
+
+   </div>
+<div class="flashcard-container">
+  <!-- Flashcard -->
+  <div class="flashcard" [class.flipped]="flipped" (click)="flipCard()">
+    <!-- Front of Flashcard -->
+    <div class="flashcard-front">
+      <div class="image-container">
+        <img [src]="vocabulary[currentVocabularyIndex]?.image ?? 'https://th.bing.com/th/id/R.8f5ff2e8c8efcf2e4e4730b39b91951d?rik=lI9W7xRnC8SDYg&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f1%2f15%2fRed_Apple.jpg&ehk=yc0sOMMcFxEbzUr6B6KnEj%2bAyx0nLaVXHkJ9iN73cUw%3d&risl=&pid=ImgRaw&r=0'" alt="{{ vocabulary[currentVocabularyIndex]?.word }}" class="word-image" />
+      </div>
+      <div class="word-container">
+        <h2>{{ vocabulary[currentVocabularyIndex]?.word }}</h2>
+        <p class="pronunciation">{{ vocabulary[currentVocabularyIndex]?.pronunciation }}</p>
+      </div>
+    </div>
+
+    <!-- Back of Flashcard -->
+    <div class="flashcard-back">
+      <div class="meaning-container">
+        <h3>Meaning</h3>
+        <p>{{ vocabulary[currentVocabularyIndex]?.meaning }}</p>
+      </div>
+      <div class="example-container">
+        <h3>Example</h3>
+        <p>{{ vocabulary[currentVocabularyIndex]?.example }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination">
+
+    <button (click)="prevCard()">Previous</button>
+    <button (click)="nextCard()">Next</button>
+  </div>
+
+  <!-- Status: Number of words learned -->
+  <div class="status">
+    <p>{{ currentVocabularyIndex + 1 }} / {{ vocabulary.length }}</p>
+  </div>
+</div>
+<app-loading *ngIf="loading"></app-loading>

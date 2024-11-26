@@ -1,0 +1,148 @@
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+.flashcard {
+  width: 100%;
+  height: 350px;
+  perspective: 1200px;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s ease;
+}
+
+.flashcard-front {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.flashcard-back {
+  background-color: #f8f8f8;
+  color: #555;
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .flashcard-front {
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .flashcard-back {
+  transform: rotateY(0deg);
+}
+
+.image-container {
+  width: 80%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.word-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.word-container {
+  padding: 10px;
+  text-align: center;
+}
+
+.word-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.pronunciation {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.meaning-container, .example-container {
+  padding: 15px;
+  text-align: left;
+  width: 90%;
+}
+
+.meaning-container h3, .example-container h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.meaning-container p, .example-container p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.play-btn {
+  background-color: #007BFF;
+}
+
+.play-btn:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}
+
+.status {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+
+

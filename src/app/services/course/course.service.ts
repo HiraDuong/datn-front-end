@@ -104,4 +104,35 @@ export class CourseService {
         }),
       );
   }
+
+
+  getCourseProcessByUserId(userId:number, courseId : number): Observable<BEResponse> {
+    return this.http.get<BEResponse>(`http://localhost:3000/api/v1/process/${userId}/${courseId}/`).pipe(
+      map((response: BEResponse) => {
+        return response;
+      }),
+      catchError((error) => {
+        return throwError(() => new Error(error.message));
+      }),
+    );
+  }
+  createProcess(userId: number, courseId: number, lessonId = -1): Observable<BEResponse> {
+    const data = {
+      userId,
+      courseId,
+      lessonId,
+    };
+    return this.http.post<BEResponse>(`http://localhost:3000/api/v1/process`, data).pipe(
+      map((response: BEResponse) => {
+        if (response.code === CODE_CREATED) {
+          return response;
+        } else {
+          throw new Error('Error: Failed to create course process');
+        }
+      }),
+      catchError((error) => {
+        return throwError(() => new Error(error.message));
+      }),
+    );
+  }
 }

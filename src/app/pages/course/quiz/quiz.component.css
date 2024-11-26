@@ -1,0 +1,116 @@
+/* Container Styling */
+.quiz-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+h1 {
+  color: #333333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Question Styling */
+h3 {
+  color: #555555;
+}
+
+label {
+  display: block;
+  margin: 8px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  margin-right: 10px;
+}
+
+/* Buttons Styling */
+button {
+  display: inline-block;
+  width: 100px;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Submit Button */
+.bg-blue-500 {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+}
+
+.bg-blue-500:hover {
+  background-color: #0056b3;
+}
+
+/* Reset Button */
+.bg-gray-500 {
+  background-color: #6c757d;
+  color: #ffffff;
+  border: none;
+}
+
+.bg-gray-500:hover {
+  background-color: #5a6268;
+}
+
+/* Back Button */
+.bg-yellow-500 {
+  background-color: #ffc107;
+  color: #000000;
+  border: none;
+  margin-top: 10px;
+}
+
+.bg-yellow-500:hover {
+  background-color: #e0a800;
+}
+
+/* Results Styling */
+.text-green-600 {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.text-red-600 {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Centering Content */
+.text-center {
+  text-align: center;
+}
+
+/* Margins */
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

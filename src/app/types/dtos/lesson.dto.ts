@@ -17,6 +17,7 @@ export interface LessonByIdDTO {
   duration: number;
   number: number;
   courseId: number;
+  videoUrl: string ;
   vocabulary: ListVocabularyDTO[];
   grammar: ListGrammarDTO[];
   tasks: ListTaskDTO[];

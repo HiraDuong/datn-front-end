@@ -1,0 +1,70 @@
+
+/* Kiểu dáng cho các câu trả lời */
+.answer-option button {
+  font-size: 1.125rem;
+  font-weight: 500;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.answer-option button:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+/* Kiểu dáng cho các câu hỏi và đáp án */
+.bg-white {
+  background-color: #fff;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+/* Phần hover của câu trả lời */
+.answer :hover {
+  background-color: #898e8b;
+  color: #fff;
+  cursor: pointer;
+}
+button {
+  transition: background-color 0.3s ease;
+}
+
+button.bg-green-200 {
+  background-color: #00f439 !important;
+}
+
+button.bg-red-200 {
+  background-color: #f32f3f !important;
+}
+
+button.bg-green-100 {
+  background-color: #00ff8c !important;
+}

@@ -1,0 +1,202 @@
+[
+  {
+    "question": "What is the meaning of 'apple'?",
+    "options": [
+      "A fruit with a sweet taste",
+      "A road vehicle with an engine",
+      "A set of printed pages",
+      "A domesticated carnivorous mammal"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "How is 'banana' described?",
+    "options": [
+      "A large mammal with a trunk",
+      "A long, curved fruit with a yellow skin",
+      "A building for people to live in",
+      "The part of a plant that is brightly colored"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "What is 'book'?",
+    "options": [
+      "A musical instrument with six strings",
+      "A sweet frozen food made from cream",
+      "A set of printed pages fastened together inside a cover",
+      "A dense forest in a tropical area"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is 'car'?",
+    "options": [
+      "A road vehicle with an engine and four wheels",
+      "A domesticated carnivorous mammal",
+      "A large mammal with a trunk",
+      "The part of a plant that is often brightly colored"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'dog'?",
+    "options": [
+      "A domesticated carnivorous mammal",
+      "A road vehicle with an engine and four wheels",
+      "A set of printed pages fastened together inside a cover",
+      "A fruit with a sweet taste"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'elephant'?",
+    "options": [
+      "A large mammal with a trunk",
+      "A long, curved fruit with a yellow skin",
+      "A building for people to live in",
+      "A road vehicle with an engine and four wheels"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'flower'?",
+    "options": [
+      "The part of a plant that is often brightly colored and has a pleasant smell",
+      "A sweet frozen food made from cream",
+      "A musical instrument with six strings",
+      "A dense forest in a tropical area"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'guitar'?",
+    "options": [
+      "A musical instrument with six strings",
+      "A road vehicle with an engine and four wheels",
+      "A set of printed pages fastened together inside a cover",
+      "A large mammal with a trunk"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'house'?",
+    "options": [
+      "A building for people to live in",
+      "A domesticated carnivorous mammal",
+      "A sweet frozen food made from cream",
+      "A musical instrument with six strings"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'ice cream'?",
+    "options": [
+      "A sweet frozen food made from cream or milk",
+      "The part of a plant that is often brightly colored",
+      "A dense forest in a tropical area",
+      "A large mammal with a trunk"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'jungle'?",
+    "options": [
+      "A dense forest in a tropical area",
+      "A building for people to live in",
+      "A musical instrument with six strings",
+      "The part of a plant that is brightly colored"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is the meaning of 'present perfect tense'?",
+    "options": [
+      "A tense used to describe actions that happened in the past but are connected to the present",
+      "A tense used to describe actions that will happen in the future",
+      "A tense used to describe actions that happened and finished in the past",
+      "A tense used for conditional statements"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'past simple tense'?",
+    "options": [
+      "A tense used to describe actions that happened and finished in the past",
+      "A tense used to describe actions that happened in the past but are connected to the present",
+      "A tense used to describe actions that will happen in the future",
+      "A tense used for conditional statements"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'future continuous tense'?",
+    "options": [
+      "A tense used to describe actions happening at a specific time in the future",
+      "A tense used to describe actions that happened in the past but are connected to the present",
+      "A tense used to describe actions that happened and finished in the past",
+      "A tense used for conditional statements"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is the meaning of 'conditional sentences'?",
+    "options": [
+      "Sentences expressing a condition and its possible result",
+      "Sentences describing actions happening at a specific time in the future",
+      "Sentences describing actions that happened and finished in the past",
+      "Sentences describing actions connected to the present"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'grammar'?",
+    "options": [
+      "The set of rules governing the structure of sentences",
+      "A domesticated carnivorous mammal",
+      "A dense forest in a tropical area",
+      "A road vehicle with an engine and four wheels"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'vocabulary'?",
+    "options": [
+      "The body of words used in a particular language",
+      "The set of rules governing the structure of sentences",
+      "A musical instrument with six strings",
+      "A large mammal with a trunk"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'lesson'?",
+    "options": [
+      "A unit of instruction or study",
+      "A sweet frozen food made from cream",
+      "The part of a plant that is brightly colored",
+      "A building for people to live in"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'course'?",
+    "options": [
+      "A series of lessons or lectures",
+      "A domesticated carnivorous mammal",
+      "A large mammal with a trunk",
+      "A dense forest in a tropical area"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "What is 'example'?",
+    "options": [
+      "A representative form or instance of something",
+      "A sweet frozen food made from cream",
+      "A building for people to live in",
+      "A musical instrument with six strings"
+    ],
+    "correctAnswer": 0
+  }
+]
